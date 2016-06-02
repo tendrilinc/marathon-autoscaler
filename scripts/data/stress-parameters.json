@@ -1,0 +1,27 @@
+{
+  "instructions": [
+    {
+      "cmd": "sleep",
+      "args": ["15"]
+    },
+    {
+      "cmd": "stress",
+      "switches": {
+        "--cpu": "1",
+        "--timeout": "30s"
+      }
+    },
+    {
+      "cmd": "stress",
+      "switches": {
+        "--cpu": "3",
+        "--timeout": "90s"
+      }
+    },
+    {
+      "cmd": "sleep",
+      "args": ["900"]
+    }
+  ],
+  "play_mode": "single"
+}

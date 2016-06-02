@@ -1,0 +1,45 @@
+{
+    "version": 1,
+    "disable_existing_loggers": true,
+    "formatters": {
+        "info_format": {
+            "format": "%(asctime)s | %(levelname)s | %(message)s"
+        },
+        "debug_format": {
+            "format": "%(asctime)s | %(levelname)s | %(message)s  (%(funcName)s:%(lineno)d)"
+        }
+    },
+    "handlers": {
+        "console": {
+            "class": "logging.StreamHandler",
+            "formatter": "debug_format",
+            "stream": "ext://sys.stdout"
+        }
+    },
+    "loggers": {
+        "urllib3": {
+            "level": "CRITICAL",
+            "handlers": ["console"],
+            "propagate": 1
+        },
+        "dd.datadogpy": {
+            "level": "CRITICAL",
+            "handlers": ["console"],
+            "propagate": 1
+        },
+        "scaler": {
+            "level": "INFO",
+            "handlers": ["console"],
+            "propagate": 0
+        },
+        "rules_manager": {
+            "level": "INFO",
+            "handlers": ["console"],
+            "propagate": 0
+        }
+    },
+    "root": {
+        "level": "INFO",
+        "handlers": ["console"]
+    }
+}

@@ -1,0 +1,75 @@
+{
+  "acceptedResourceRoles": null,
+  "args": null,
+  "backoffFactor": 1.15,
+  "backoffSeconds": 1,
+  "cmd": null,
+  "constraints": [
+    [
+      "hostname",
+      "UNIQUE"
+    ],
+    [
+      "role",
+      "CLUSTER",
+      "gp"
+    ]
+  ],
+  "container": {
+    "docker": {
+      "forcePullImage": true,
+      "image": "autoscale_test_app:latest",
+      "network": "BRIDGE",
+      "parameters": [],
+      "privileged": false
+    },
+    "type": "DOCKER",
+    "volumes": [
+      {
+        "containerPath": "/var/log/docker",
+        "hostPath": "/var/lib/docker",
+        "mode": "RO"
+      },
+      {
+        "containerPath": "/var/run/docker.sock",
+        "hostPath": "/run/docker.sock",
+        "mode": "RW"
+      }
+    ]
+  },
+  "cpus": 0.2,
+  "dependencies": [],
+  "deployments": [],
+  "disk": 0,
+  "env": {
+  },
+  "executor": "",
+  "fetch": [
+    {
+      "cache": false,
+      "executable": false,
+      "extract": true,
+      "uri": "file:///root/.dockercfg"
+    }
+  ],
+  "healthChecks": [],
+  "id": "/autoscale-test-app",
+  "instances": 1,
+  "ipAddress": null,
+  "labels": {
+  },
+  "maxLaunchDelaySeconds": 3600,
+  "mem": 64,
+  "ports": [],
+  "requirePorts": false,
+  "storeUrls": [],
+  "tasksHealthy": 0,
+  "tasksRunning": 1,
+  "tasksStaged": 0,
+  "tasksUnhealthy": 0,
+  "upgradeStrategy": {
+    "maximumOverCapacity": 1,
+    "minimumHealthCapacity": 1
+  },
+  "user": null
+}

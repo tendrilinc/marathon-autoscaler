@@ -1,0 +1,20 @@
+{
+  "min_instances": 1,
+  "max_instances": 5,
+  "upper_threshold": {
+    "cpu_avg_usage": ">=50",
+    "memory_avg_usage": ">=70",
+    "scale_factor": 1,
+    "tolerance": "PT30S",
+    "backoff": "PT15S",
+    "exclusive": 0
+  },
+  "lower_threshold": {
+    "cpu_avg_usage": "<50",
+    "memory_avg_usage": "<0.5",
+    "scale_factor": 1,
+    "tolerance": "PT30S",
+    "backoff": "PT15S",
+    "exclusive": 0
+  }
+}
