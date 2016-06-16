@@ -63,11 +63,11 @@ def parse_cli_args():
                    default=None, required=False,
                    help="Number of subprocesses to use for gathering and sending stats to Datadog")
     p.add_argument("--dd-api-key", dest="datadog_api_key", action=EnvDefault, envvar="DATADOG_API_KEY", type=str,
-                   required=True, help="Datadog API key")
+                   required=False, help="Datadog API key")
     p.add_argument("--dd-app-key", dest="datadog_app_key", action=EnvDefault, envvar="DATADOG_APP_KEY", type=str,
-                   required=True, help="Datadog APP key")
+                   required=False, help="Datadog APP key")
     p.add_argument("--dd-env", dest="datadog_env", action=EnvDefault, envvar="DATADOG_ENV", type=str,
-                   required=True, help="Datadog ENV variable")
+                   required=False, help="Datadog ENV variable")
     p.add_argument("--log-config", dest="log_config", action=EnvDefault, envvar="LOG_CONFIG", type=str,
                    default="/app/logging_config.json",
                    help="Path to logging configuration file")
