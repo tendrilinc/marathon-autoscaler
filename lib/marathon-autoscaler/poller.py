@@ -11,13 +11,12 @@ from scaler import AutoScaler
 from multiprocessing import Pool
 from time import sleep
 
-
 def get_mesos_slave_statistics(slave_host):
     """
     :param slave_host: A Mesos slave endpoint defined as an FQDN or IP Address
     :return: Statistics (Metrics) JSON
     """
-    return slave_host, MesosAgent("http://{0}:5050/".format(slave_host)).get_statistics()
+    return slave_host, MesosAgent("http://{0}:{1}/".format(slave_host, mesos_agent_port)).get_statistics()
 
 
 class Poller:
@@ -33,6 +32,8 @@ class Poller:
         self.auto_scaler = AutoScaler(self.marathon, cli_args=cli_args)
         self.cpu_fan_out = cli_args.cpu_fan_out
         self.datadog_client = DatadogClient(cli_args)
+        global mesos_agent_port
+        mesos_agent_port = cli_args.mesos_agent_port
 
     def poll(self, mesos_master, marathon_client, poll_time_span=3, cpu_fan_out=None):
         """ The main method for forming the applications metrics data object. A call to Marathon retrieves

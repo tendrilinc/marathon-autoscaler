@@ -32,7 +32,7 @@ class EnvDefault(argparse.Action):
     addition to commandline parameters.
     """
     def __init__(self, envvar, required=True, default=None, **kwargs):
-        if not default and envvar:
+        if envvar:
             if envvar in os.environ:
                 default = os.environ[envvar]
         if required and default:
@@ -53,6 +53,8 @@ def parse_cli_args():
                    default=5, help="The time duration in seconds between polling events")
     p.add_argument("--mesos-uri", dest="mesos_uri", action=EnvDefault, envvar="MESOS_URI", type=str, required=True,
                    help="The Mesos Endpoint")
+    p.add_argument("--mesos-agent-port", dest="mesos_agent_port", action=EnvDefault, envvar="MESOS_AGENT_PORT", type=int,
+                   required=True, default=5051, help="Mesos Agent Port")
     p.add_argument("--marathon-uri", dest="marathon_uri", action=EnvDefault, envvar="MARATHON_URI", type=str,
                    required=True, help="The Marathon Endpoint")
     p.add_argument("--marathon-user", dest="marathon_user", action=EnvDefault, envvar="MARATHON_USER", type=str,
@@ -60,8 +62,7 @@ def parse_cli_args():
     p.add_argument("--marathon-pass", dest="marathon_pass", action=EnvDefault, envvar="MARATHON_PASS", type=str,
                    required=True, help="The Marathon Password")
     p.add_argument("--cpu-fan-out", dest="cpu_fan_out", action=EnvDefault, envvar="CPU_FAN_OUT", type=int,
-                   default=None, required=False,
-                   help="Number of subprocesses to use for gathering and sending stats to Datadog")
+                   default=None, required=False, help="Number of subprocesses to use for gathering and sending stats to Datadog")
     p.add_argument("--dd-api-key", dest="datadog_api_key", action=EnvDefault, envvar="DATADOG_API_KEY", type=str,
                    required=False, help="Datadog API key")
     p.add_argument("--dd-app-key", dest="datadog_app_key", action=EnvDefault, envvar="DATADOG_APP_KEY", type=str,

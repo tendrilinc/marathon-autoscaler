@@ -56,6 +56,7 @@ instance of the Autoscaler to your Marathon system. The parameters needed are ex
 |------------|----------------------|-------------|
 | --interval | INTERVAL | The time duration in seconds between polling events |
 | --mesos-uri | MESOS_URI | The Mesos HTTP endpoint |
+| --mesos-agent-port | MESOS_AGENT_PORT | THe port your Mesos Agent is listening on (defaults to 5051) |
 | --marathon-uri | MARATHON_URI | The Marathon HTTP endpoint |
 | --marathon-user | MARATHON_USER | The Marathon username for authentication on the `marathon-uri` | 
 | --marathon-pass | MARATHON_PASS | The Marathon password for authentication on the `marathon-uri` |
