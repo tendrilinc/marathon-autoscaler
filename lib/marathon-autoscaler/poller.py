@@ -10,14 +10,14 @@ from mesosmaster import MesosMaster
 from scaler import AutoScaler
 from multiprocessing import Pool
 from time import sleep
+import settings
 
-
-def get_mesos_slave_statistics(slave_host):
+def get_mesos_agent_statistics(agent_host):
     """
-    :param slave_host: A Mesos slave endpoint defined as an FQDN or IP Address
+    :param agent_host: A Mesos slave endpoint defined as an FQDN or IP Address
     :return: Statistics (Metrics) JSON
     """
-    return slave_host, MesosAgent("http://{0}:5050/".format(slave_host)).get_statistics()
+    return agent_host, MesosAgent("http://{0}:{1}/".format(agent_host, settings.agent_port)).get_statistics()
 
 
 class Poller:
@@ -33,6 +33,7 @@ class Poller:
         self.auto_scaler = AutoScaler(self.marathon, cli_args=cli_args)
         self.cpu_fan_out = cli_args.cpu_fan_out
         self.datadog_client = DatadogClient(cli_args)
+        self.agent_port = cli_args.agent_port
 
     def poll(self, mesos_master, marathon_client, poll_time_span=3, cpu_fan_out=None):
         """ The main method for forming the applications metrics data object. A call to Marathon retrieves
@@ -49,7 +50,7 @@ class Poller:
         try:
             marathon_apps = marathon_client.get_all_apps().get("apps")
             slaves = mesos_master.get_slaves()
-            slave_hosts = [slave.get("hostname") for slave in slaves.get("slaves")]
+            agent_hosts = [slave.get("hostname") for slave in slaves.get("slaves")]
         except Exception as ex:
             self.logger.error(ex)
             self.logger.fatal("Marathon data could not be retrieved!")
@@ -58,22 +59,22 @@ class Poller:
         executor_stats = defaultdict(list)
 
         for _ in range(2):
-            slave_hosts_stats = {}
+            agent_hosts_stats = {}
             if cpu_fan_out:
                 fan_out_procs = cpu_fan_out
             else:
-                fan_out_procs = len(slave_hosts)
+                fan_out_procs = len(agent_hosts)
 
-            maxtasks = int(len(slave_hosts) / fan_out_procs) if int(len(slave_hosts) / fan_out_procs) else 1
+            maxtasks = int(len(agent_hosts) / fan_out_procs) if int(len(agent_hosts) / fan_out_procs) else 1
             pool = Pool(processes=fan_out_procs, maxtasksperchild=maxtasks)
-            for slave_host, stats in pool.imap_unordered(get_mesos_slave_statistics, slave_hosts):
-                self.logger.debug((slave_host, stats))
-                slave_hosts_stats[slave_host] = stats
+            for agent_host, stats in pool.imap_unordered(get_mesos_agent_statistics, agent_hosts):
+                self.logger.debug((agent_host, stats))
+                agent_hosts_stats[agent_host] = stats
             pool.close()
 
-            for host in slave_hosts_stats:
-                if slave_hosts_stats[host] is not None:
-                    for executor in slave_hosts_stats[host]:
+            for host in agent_hosts_stats:
+                if agent_hosts_stats[host] is not None:
+                    for executor in agent_hosts_stats[host]:
                         data = {"host": host, "stats": executor["statistics"]}
                         executor_stats[executor["executor_id"]].append(data)
             sleep(poll_time_span)
