@@ -53,7 +53,7 @@ def parse_cli_args():
                    default=5, help="The time duration in seconds between polling events")
     p.add_argument("--mesos-uri", dest="mesos_uri", action=EnvDefault, envvar="MESOS_URI", type=str, required=True,
                    help="The Mesos Endpoint")
-    p.add_argument("--mesos-agent-port", dest="mesos_agent_port", action=EnvDefault, envvar="MESOS_AGENT_PORT", type=int,
+    p.add_argument("--agent-port", dest="agent_port", action=EnvDefault, envvar="AGENT_PORT", type=int,
                    required=True, default=5051, help="Mesos Agent Port")
     p.add_argument("--marathon-uri", dest="marathon_uri", action=EnvDefault, envvar="MARATHON_URI", type=str,
                    required=True, help="The Marathon Endpoint")
