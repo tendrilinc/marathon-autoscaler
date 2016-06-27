@@ -4,17 +4,7 @@
   "backoffFactor": 1.15,
   "backoffSeconds": 1,
   "cmd": null,
-  "constraints": [
-    [
-      "hostname",
-      "UNIQUE"
-    ],
-    [
-      "role",
-      "CLUSTER",
-      "gp"
-    ]
-  ],
+  "constraints": [],
   "container": {
     "docker": {
       "forcePullImage": true,
