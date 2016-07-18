@@ -8,7 +8,11 @@ import argparse
 import json
 import os
 import sys
-sys.path.append('../../marathon_autoscaler')
+
+BASE_PATH = os.path.dirname(os.path.realpath(__file__))
+PROJECT_PATH = os.path.dirname(BASE_PATH)
+sys.path.append(os.path.join(PROJECT_PATH, 'lib/'))
+
 from marathon_autoscaler.marathon import Marathon
 
 
