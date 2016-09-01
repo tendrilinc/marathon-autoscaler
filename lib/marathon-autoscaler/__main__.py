@@ -58,9 +58,9 @@ def parse_cli_args():
     p.add_argument("--marathon-uri", dest="marathon_uri", action=EnvDefault, envvar="MARATHON_URI", type=str,
                    required=True, help="The Marathon Endpoint")
     p.add_argument("--marathon-user", dest="marathon_user", action=EnvDefault, envvar="MARATHON_USER", type=str,
-                   required=True, help="The Marathon Username")
+                   required=False, help="The Marathon Username", default=None)
     p.add_argument("--marathon-pass", dest="marathon_pass", action=EnvDefault, envvar="MARATHON_PASS", type=str,
-                   required=True, help="The Marathon Password")
+                   required=False, help="The Marathon Password", default=None)
     p.add_argument("--cpu-fan-out", dest="cpu_fan_out", action=EnvDefault, envvar="CPU_FAN_OUT", type=int,
                    default=None, required=False, help="Number of subprocesses to use for gathering and sending stats to Datadog")
     p.add_argument("--dd-api-key", dest="datadog_api_key", action=EnvDefault, envvar="DATADOG_API_KEY", type=str,
