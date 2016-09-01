@@ -29,7 +29,11 @@ class Poller:
         self.args = cli_args
         self.logger = logger or logging.getLogger(__name__)
         self.mesos = MesosMaster(cli_args.mesos_uri)
-        self.marathon = Marathon(cli_args.marathon_uri, (cli_args.marathon_user, cli_args.marathon_pass))
+        self.marathon = Marathon(cli_args.marathon_uri,
+            (cli_args.marathon_user, cli_args.marathon_pass)
+            if cli_args.marathon_user and cli_args.marathon_pass
+            else None
+        )
         self.auto_scaler = AutoScaler(self.marathon, cli_args=cli_args)
         self.cpu_fan_out = cli_args.cpu_fan_out
         self.datadog_client = DatadogClient(cli_args)
