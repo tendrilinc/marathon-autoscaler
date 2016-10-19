@@ -68,9 +68,9 @@ instance of the Autoscaler to your Marathon system. The parameters needed are ex
 | --enforce-version-match | ENFORCE_VERSION_MATCH | If set, version matching will be required of applications to participate |
 | --rules-prefix | RULES_PREFIX | The prefix for rule names |
 
-Run the script/deploy_autoscaler_to_marathon.py script:
+Run the scripts/deploy_autoscaler_to_marathon.py script:
 ```bash
-cd script && python deploy_autoscaler_to_marathon.py {PARAMETERS}
+cd scripts && python deploy_autoscaler_to_marathon.py {PARAMETERS}
 ```
 
 
@@ -179,7 +179,7 @@ Push the image to the registry:
 docker push autoscale_test_app:latest
 ```
 
-Run the script/test_autoscaler.py script:
+Run the scripts/test_autoscaler.py script:
 ```bash
-cd script && python test_autoscaler.py --marathon-uri MARATHON_HTTP --marathon-user MARATHON_USER --marathon-pass MARATHON_PASS
+cd scripts && python test_autoscaler.py --marathon-uri MARATHON_HTTP --marathon-user MARATHON_USER --marathon-pass MARATHON_PASS
 ```

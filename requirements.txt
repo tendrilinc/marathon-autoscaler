@@ -2,3 +2,6 @@ datadog
 requests
 aniso8601
 supervisor-stdout
+tox
+pytest
+pytest-cov

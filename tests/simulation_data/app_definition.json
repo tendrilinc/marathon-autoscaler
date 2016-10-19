@@ -1,0 +1,91 @@
+{
+  "acceptedResourceRoles": null,
+  "args": null,
+  "backoffFactor": 1.15,
+  "backoffSeconds": 1,
+  "cmd": null,
+  "constraints": [],
+  "container": {
+    "docker": {
+      "forcePullImage": false,
+      "image": "registry/test-service:0.0.1",
+      "network": "BRIDGE",
+      "parameters": [],
+      "portMappings": [
+        {
+          "containerPort": 5991,
+          "hostPort": 0,
+          "protocol": "tcp",
+          "servicePort": 10008
+        }
+      ],
+      "privileged": false
+    },
+    "type": "DOCKER",
+    "volumes": []
+  },
+  "cpus": 0.5,
+  "dependencies": [],
+  "deployments": [],
+  "disk": 0,
+  "env": {
+    "location": "test-environment"
+  },
+  "executor": "",
+  "fetch": [
+    {
+      "cache": false,
+      "executable": false,
+      "extract": true,
+      "uri": "file:///docker/.dockercfg"
+    }
+  ],
+  "healthChecks": [
+    {
+      "gracePeriodSeconds": 120,
+      "ignoreHttp1xx": false,
+      "intervalSeconds": 20,
+      "maxConsecutiveFailures": 3,
+      "path": "/healthchk",
+      "portIndex": 1,
+      "protocol": "HTTP",
+      "timeoutSeconds": 20
+    }
+  ],
+  "id": "/test-service",
+  "instances": 3,
+  "ipAddress": null,
+  "labels": {
+    "mas_rule_fastscaleup_1": "cpu | >90 | PT2M | 3 | PT1M30S",
+    "mas_rule_fastscaleup_2": "memory | >85 | PT2M | 3 | PT1M30S",
+    "mas_rule_slowscaledown_1": "cpu | <=90 | PT1M | -1 | PT30S",
+    "mas_rule_slowscaledown_2": "memory | <=85 | PT1M | -1 | PT30S",
+    "min_instances": "2",
+    "max_instances": "5",
+    "use_marathon_autoscaler": "0.0.3"
+  },
+  "maxLaunchDelaySeconds": 3600,
+  "mem": 3000,
+  "ports": [
+    10008
+  ],
+  "requirePorts": false,
+  "storeUrls": [],
+  "tasksHealthy": 3,
+  "tasksRunning": 3,
+  "tasksStaged": 0,
+  "tasksUnhealthy": 0,
+  "upgradeStrategy": {
+    "maximumOverCapacity": 1,
+    "minimumHealthCapacity": 1
+  },
+  "uris": [
+    "file:///docker/.dockercfg"
+  ],
+  "user": null,
+  "version": "2000-01-01T00:00:01.000Z",
+  "versionInfo": {
+    "lastConfigChangeAt": "2000-01-01T00:00:01.000Z",
+    "lastScalingAt": "2000-01-01T00:00:01.000Z"
+  }
+}
