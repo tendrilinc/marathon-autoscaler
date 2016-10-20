@@ -14,7 +14,7 @@ class fake_marathon_client():
         return
 
 
-@pytest.fixture
+@pytest.fixture(scope="session")
 def testsettings():
     fake_settings = dict(sleep_interval=5,
                          mesos_uri=None,
@@ -34,7 +34,7 @@ def testsettings():
         setattr(settings, name, value)
 
 
-@pytest.fixture
+@pytest.fixture(scope="session")
 def auto_scaler():
     fake_client = fake_marathon_client()
     _autoscaler = AutoScaler(fake_client)
@@ -42,7 +42,7 @@ def auto_scaler():
     return _autoscaler
 
 
-@pytest.fixture
+@pytest.fixture(scope="session")
 def metric_summaries():
     with open(
             os.path.join(

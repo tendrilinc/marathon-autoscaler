@@ -9,7 +9,7 @@ from history_manager import HistoryManager
 import settings
 
 
-@pytest.fixture
+@pytest.fixture(scope="session")
 def testsettings():
     fake_settings = dict(sleep_interval=5,
                          mesos_uri=None,
@@ -29,7 +29,7 @@ def testsettings():
         setattr(settings, name, value)
 
 
-@pytest.fixture
+@pytest.fixture(scope="session")
 def history_mgr(testsettings):
     _history_mgr = HistoryManager()
     assert (type(_history_mgr) is HistoryManager)

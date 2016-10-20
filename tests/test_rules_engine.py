@@ -12,7 +12,7 @@ from rules_manager import RulesManager
 import settings
 
 
-@pytest.fixture
+@pytest.fixture(scope="session")
 def testsettings():
     fake_settings = dict(sleep_interval=5,
                          mesos_uri=None,
@@ -32,7 +32,7 @@ def testsettings():
         setattr(settings, name, value)
 
 
-@pytest.fixture
+@pytest.fixture(scope="session")
 def app_def():
     with open(
             os.path.join(
@@ -42,7 +42,7 @@ def app_def():
         test_app_def = json.load(f)
     return test_app_def
 
-@pytest.fixture
+@pytest.fixture(scope="session")
 def rules_mgr(testsettings, app_def):
     _rules_mgr = RulesManager(app_def=ApplicationDefinition(app_def))
     assert (type(_rules_mgr) is RulesManager)
