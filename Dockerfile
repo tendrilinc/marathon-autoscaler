@@ -8,7 +8,7 @@ RUN apk-install \
     build-base \
   && mkdir -p /app
 
-COPY requirements.txt lib/marathon-autoscaler/ /app/
+COPY requirements.txt lib/marathon_autoscaler/ /app/
 COPY supervisord.conf /etc/supervisor.d/marathon_autoscaler.ini
 RUN pip install -r /app/requirements.txt
 RUN apk del build-base python3-dev
