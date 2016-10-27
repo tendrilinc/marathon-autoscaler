@@ -19,4 +19,4 @@ deploy: build
 	docker push $(REGISTRY)/marathon_autoscaler:$(VERSION)
 
 get-version:
-VERSION=`python -c "import os, sys; sys.path.append(os.path.abspath('lib/marathon-autoscaler')); from constants import __version__; print(__version__)"`
+VERSION=`python -c "import os, sys; sys.path.append(os.path.abspath('lib/marathon_autoscaler')); from constants import __version__; print(__version__)"`
