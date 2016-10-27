@@ -1,5 +1,9 @@
 # Marathon Autoscaler
 
+| status |
+|---------------------------------------------------------------------------------------------------------------------------------------------|
+| [![TravisCI](https://travis-ci.org/tendrilinc/marathon-autoscaler.svg?branch=master)](https://travis-ci.org/tendrilinc/marathon-autoscaler) |
+
 ## Description
 
 The aim of this project is to allow Marathon applications to scale to meet load requirements, without user intervention. To accomplish this, it monitors Marathon's application metrics and scales applications based on user-defined thresholds.
