@@ -3,5 +3,8 @@ requests
 aniso8601
 supervisor-stdout
 tox
+mock
 pytest
 pytest-cov
+pydocstyle
+pycodestyle
