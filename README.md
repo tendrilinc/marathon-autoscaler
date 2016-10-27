@@ -1,8 +1,8 @@
 # Marathon Autoscaler
 
 | status |
-|-------------------------------------------------------------------------------------|
-| ![TravisCI](https://travis-ci.org/tendrilinc/marathon-autoscaler.svg?branch=master) |
+|---------------------------------------------------------------------------------------------------------------------------------------------|
+| [![TravisCI](https://travis-ci.org/tendrilinc/marathon-autoscaler.svg?branch=master)](https://travis-ci.org/tendrilinc/marathon-autoscaler) |
 
 ## Description
 
