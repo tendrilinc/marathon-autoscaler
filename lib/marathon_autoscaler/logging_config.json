@@ -12,7 +12,7 @@
     "handlers": {
         "console": {
             "class": "logging.StreamHandler",
-            "formatter": "debug_format",
+            "formatter": "info_format",
             "stream": "ext://sys.stdout"
         }
     },

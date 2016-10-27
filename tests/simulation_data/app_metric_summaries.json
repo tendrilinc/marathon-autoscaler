@@ -1,0 +1,184 @@
+{
+  "summaries": [
+    {
+      "test-service": {
+        "cpu_avg_usage": 0.43968765024682216,
+        "max_cpu": [
+          0.9436132136658013,
+          "test-service.73966204-961a-11e6-b4c9-0a0e831c5c6b",
+          "10.0.0.10"
+        ],
+        "executor_metrics": [
+          {
+            "memory_total_usage": 18.38436759478673,
+            "cpu_total_usage": 0.1272753639609533,
+            "cpus_user_time_secs": 0.00999999999999801,
+            "cpus_system_time_secs": 0.0,
+            "host": "10.0.0.11",
+            "timestamp": 7.856980085372925,
+            "executor_id": "test-service.7396b026-961a-11e6-b4c9-0a0e831c5c6b"
+          },
+          {
+            "memory_total_usage": 18.812018661137444,
+            "cpu_total_usage": 0.24817437311371182,
+            "cpus_user_time_secs": 0.019999999999999574,
+            "cpus_system_time_secs": 0.0,
+            "host": "10.0.0.12",
+            "timestamp": 8.058849811553955,
+            "executor_id": "test-service.73968915-961a-11e6-b4c9-0a0e831c5c6b"
+          },
+          {
+            "memory_total_usage": 19.860164889415483,
+            "cpu_total_usage": 0.9436132136658013,
+            "cpus_user_time_secs": 0.07000000000000028,
+            "cpus_system_time_secs": 0.010000000000000009,
+            "host": "10.0.0.10",
+            "timestamp": 8.478049993515015,
+            "executor_id": "test-service.73966204-961a-11e6-b4c9-0a0e831c5c6b"
+          }
+        ],
+        "max_memory": [
+          19.860164889415483,
+          "test-service.73966204-961a-11e6-b4c9-0a0e831c5c6b",
+          "10.0.0.10"
+        ],
+        "memory_avg_usage": 19.018850381779885
+      }
+    },
+    {
+      "test-service": {
+        "cpu_avg_usage": 0.43968765024682216,
+        "max_cpu": [
+          0.9436132136658013,
+          "test-service.73966204-961a-11e6-b4c9-0a0e831c5c6b",
+          "10.0.0.10"
+        ],
+        "executor_metrics": [
+          {
+            "memory_total_usage": 18.38436759478673,
+            "cpu_total_usage": 0.1272753639609533,
+            "cpus_user_time_secs": 0.00999999999999801,
+            "cpus_system_time_secs": 0.0,
+            "host": "10.0.0.11",
+            "timestamp": 7.856980085372925,
+            "executor_id": "test-service.7396b026-961a-11e6-b4c9-0a0e831c5c6b"
+          },
+          {
+            "memory_total_usage": 18.812018661137444,
+            "cpu_total_usage": 0.24817437311371182,
+            "cpus_user_time_secs": 0.019999999999999574,
+            "cpus_system_time_secs": 0.0,
+            "host": "10.0.0.12",
+            "timestamp": 8.058849811553955,
+            "executor_id": "test-service.73968915-961a-11e6-b4c9-0a0e831c5c6b"
+          },
+          {
+            "memory_total_usage": 19.860164889415483,
+            "cpu_total_usage": 0.9436132136658013,
+            "cpus_user_time_secs": 0.07000000000000028,
+            "cpus_system_time_secs": 0.010000000000000009,
+            "host": "10.0.0.10",
+            "timestamp": 8.478049993515015,
+            "executor_id": "test-service.73966204-961a-11e6-b4c9-0a0e831c5c6b"
+          }
+        ],
+        "max_memory": [
+          19.860164889415483,
+          "test-service.73966204-961a-11e6-b4c9-0a0e831c5c6b",
+          "10.0.0.10"
+        ],
+        "memory_avg_usage": 19.018850381779885
+      }
+    },
+    {
+      "test-service": {
+        "cpu_avg_usage": 0.43968765024682216,
+        "max_cpu": [
+          0.9436132136658013,
+          "test-service.73966204-961a-11e6-b4c9-0a0e831c5c6b",
+          "10.0.0.10"
+        ],
+        "executor_metrics": [
+          {
+            "memory_total_usage": 18.38436759478673,
+            "cpu_total_usage": 0.1272753639609533,
+            "cpus_user_time_secs": 0.00999999999999801,
+            "cpus_system_time_secs": 0.0,
+            "host": "10.0.0.11",
+            "timestamp": 7.856980085372925,
+            "executor_id": "test-service.7396b026-961a-11e6-b4c9-0a0e831c5c6b"
+          },
+          {
+            "memory_total_usage": 18.812018661137444,
+            "cpu_total_usage": 0.24817437311371182,
+            "cpus_user_time_secs": 0.019999999999999574,
+            "cpus_system_time_secs": 0.0,
+            "host": "10.0.0.12",
+            "timestamp": 8.058849811553955,
+            "executor_id": "test-service.73968915-961a-11e6-b4c9-0a0e831c5c6b"
+          },
+          {
+            "memory_total_usage": 19.860164889415483,
+            "cpu_total_usage": 0.9436132136658013,
+            "cpus_user_time_secs": 0.07000000000000028,
+            "cpus_system_time_secs": 0.010000000000000009,
+            "host": "10.0.0.10",
+            "timestamp": 8.478049993515015,
+            "executor_id": "test-service.73966204-961a-11e6-b4c9-0a0e831c5c6b"
+          }
+        ],
+        "max_memory": [
+          19.860164889415483,
+          "test-service.73966204-961a-11e6-b4c9-0a0e831c5c6b",
+          "10.0.0.10"
+        ],
+        "memory_avg_usage": 19.018850381779885
+      }
+    },
+    {
+      "test-service": {
+        "cpu_avg_usage": 0.43968765024682216,
+        "max_cpu": [
+          0.9436132136658013,
+          "test-service.73966204-961a-11e6-b4c9-0a0e831c5c6b",
+          "10.0.0.10"
+        ],
+        "executor_metrics": [
+          {
+            "memory_total_usage": 18.38436759478673,
+            "cpu_total_usage": 0.1272753639609533,
+            "cpus_user_time_secs": 0.00999999999999801,
+            "cpus_system_time_secs": 0.0,
+            "host": "10.0.0.11",
+            "timestamp": 7.856980085372925,
+            "executor_id": "test-service.7396b026-961a-11e6-b4c9-0a0e831c5c6b"
+          },
+          {
+            "memory_total_usage": 18.812018661137444,
+            "cpu_total_usage": 0.24817437311371182,
+            "cpus_user_time_secs": 0.019999999999999574,
+            "cpus_system_time_secs": 0.0,
+            "host": "10.0.0.12",
+            "timestamp": 8.058849811553955,
+            "executor_id": "test-service.73968915-961a-11e6-b4c9-0a0e831c5c6b"
+          },
+          {
+            "memory_total_usage": 19.860164889415483,
+            "cpu_total_usage": 0.9436132136658013,
+            "cpus_user_time_secs": 0.07000000000000028,
+            "cpus_system_time_secs": 0.010000000000000009,
+            "host": "10.0.0.10",
+            "timestamp": 8.478049993515015,
+            "executor_id": "test-service.73966204-961a-11e6-b4c9-0a0e831c5c6b"
+          }
+        ],
+        "max_memory": [
+          19.860164889415483,
+          "test-service.73966204-961a-11e6-b4c9-0a0e831c5c6b",
+          "10.0.0.10"
+        ],
+        "memory_avg_usage": 19.018850381779885
+      }
+    }
+  ]
+}
