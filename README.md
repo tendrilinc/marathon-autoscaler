@@ -1,8 +1,8 @@
 # Marathon Autoscaler
 
-| status |
-|---------------------------------------------------------------------------------------------------------------------------------------------|
-| [![TravisCI](https://travis-ci.org/tendrilinc/marathon-autoscaler.svg?branch=master)](https://travis-ci.org/tendrilinc/marathon-autoscaler) |
+| Build Status | Docker Images |
+|:------------:|:-------------:|
+| [![TravisCI](https://travis-ci.org/tendrilinc/marathon-autoscaler.svg?branch=master)](https://travis-ci.org/tendrilinc/marathon-autoscaler) | [Docker Hub](https://hub.docker.com/r/tendril/marathon-autoscaler/) |
 
 ## Description
 
