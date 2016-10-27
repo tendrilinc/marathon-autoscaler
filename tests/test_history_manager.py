@@ -4,7 +4,7 @@ import json
 
 import pytest
 
-sys.path.append(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "lib", "marathon-autoscaler"))
+sys.path.append(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "lib", "marathon_autoscaler"))
 from history_manager import HistoryManager
 import settings
 
