@@ -33,7 +33,7 @@ class Marathon(ApiClientBase):
         }
         """
 
-    def __init__(self, uri, creds, logger=None):
+    def __init__(self, uri, creds=None, logger=None):
         """
         :param uri:
         :param creds:
