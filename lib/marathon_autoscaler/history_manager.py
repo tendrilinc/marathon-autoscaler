@@ -119,19 +119,17 @@ class HistoryManager(object):
         if self.is_time_window_filled(app_name, go_back_this_far):
             app_tolerated_tail = self.get_performance_tail_slice(app_name, go_back_this_far)
 
-            if len(app_tolerated_tail) == 0:
-                return result
-
-            checksums = set([item.get("checksum") for item in app_tolerated_tail])
-            vote_list = [item.get("vote") for item in app_tolerated_tail]
-            votes = set(vote_list)
-            if len(checksums) == 1 and len(votes) == 1 and votes == {vote}:
-                result = True
+            if len(app_tolerated_tail) != 0:
+                checksums = set([item.get("checksum") for item in app_tolerated_tail])
+                vote_list = [item.get("vote") for item in app_tolerated_tail]
+                votes = set(vote_list)
+                if len(checksums) == 1 and len(votes) == 1 and votes == {vote}:
+                    result = True
 
         msg = "{app_name}: tolerance reached: {result} / {go_back_this_far:%H:%M:%S.%f} - " \
               "{right_now:%H:%M:%S.%f}"
         self.logger.info(msg.format(**locals()))
-        dmsg = "{app_name}: {vote_list}"
+        dmsg = "{app_name}: vote_list: {vote_list}"
         self.logger.debug(dmsg.format(**locals()))
         return result
 
