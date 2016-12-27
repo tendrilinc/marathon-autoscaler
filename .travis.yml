@@ -3,6 +3,10 @@ language: python
 sudo: required
 dist: trusty
 
+python:
+  - "2.7"
+  - "3.5"
+
 services:
   - docker
 
@@ -16,7 +20,6 @@ env:
 
 install:
   - curl -sSL https://minimesos.org/install | sh
-  - pyenv local 3.5.2
   - pip install -r requirements.txt
 
 script:
