@@ -1,6 +1,5 @@
 language: python
 
-sudo: required
 dist: trusty
 
 python:
@@ -16,7 +15,6 @@ before_install:
 env:
   global:
     - PATH=$PATH:$HOME/.minimesos/bin
-    - PYENV_VERSION=3.5.2
 
 install:
   - curl -sSL https://minimesos.org/install | sh
@@ -25,7 +23,10 @@ install:
 script:
   - py.test --cov=lib/marathon_autoscaler/
   - docker build -t marathon-autoscaler:localbuild .
-  - eval $(minimesos up | /usr/bin/tail -n +3)
+  - minimesos up
+  - minimesos info
+  - env
+  - eval $(minimesos info | tail -n +3)
   - curl $MINIMESOS_MARATHON/v2/apps
 
 after_script:
