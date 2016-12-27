@@ -16,12 +16,14 @@ env:
 
 install:
   - curl -sSL https://minimesos.org/install | sh
+  - pyenv local 3.5.2
   - pip install -r requirements.txt
 
 script:
-  - minimesos init
-  - minimesos up
   - py.test --cov=lib/marathon_autoscaler/
+  - docker build -t marathon-autoscaler:localbuild .
+  - eval $(minimesos up | tail -n +3)
+  - curl $MINIMESOS_MARATHON/v2/apps
 
 after_script:
   - minimesos destroy
