@@ -25,7 +25,7 @@ install:
 script:
   - py.test --cov=lib/marathon_autoscaler/
   - docker build -t marathon-autoscaler:localbuild .
-  - eval $(minimesos up | tail -n +3)
+  - eval $(minimesos up | /usr/bin/tail -n +3)
   - curl $MINIMESOS_MARATHON/v2/apps
 
 after_script:
