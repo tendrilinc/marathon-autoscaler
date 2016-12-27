@@ -1,10 +1,27 @@
 language: python
-python:
-  - "2.7"
-  - "3.5"
-  - "3.6-dev"
-  - "nightly"
-# command to install dependencies
-install: "pip install -r requirements.txt"
-# command to run tests
-script: py.test --cov=lib/marathon_autoscaler/
+
+sudo: required
+dist: trusty
+
+services:
+  - docker
+
+before_install:
+  - sudo apt-get -qq update
+
+env:
+  global:
+    - PATH=$PATH:$HOME/.minimesos/bin
+    - PYENV_VERSION=3.5.2
+
+install:
+  - curl -sSL https://minimesos.org/install | sh
+  - pip install -r requirements.txt
+
+script:
+  - minimesos init
+  - minimesos up
+  - py.test --cov=lib/marathon_autoscaler/
+
+after_script:
+  - minimesos destroy
