@@ -9,9 +9,6 @@ python:
 services:
   - docker
 
-before_install:
-  - sudo apt-get -qq update
-
 env:
   global:
     - PATH=$PATH:$HOME/.minimesos/bin
@@ -24,8 +21,6 @@ script:
   - py.test --cov=lib/marathon_autoscaler/
   - docker build -t marathon-autoscaler:localbuild .
   - minimesos up
-  - minimesos info
-  - env
   - eval $(minimesos info | tail -n +3)
   - curl $MINIMESOS_MARATHON/v2/apps
 

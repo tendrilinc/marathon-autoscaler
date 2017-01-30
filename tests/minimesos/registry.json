@@ -1,0 +1,32 @@
+{
+  "id": "registry",
+  "container": {
+    "docker": {
+      "image": "registry:2",
+      "network": "BRIDGE",
+      "portMappings": [
+        {
+          "containerPort": 5000,
+          "hostPort": 5000,
+          "servicePort": 0,
+          "protocol": "tcp"
+        }
+      ],
+      "parameters": [],
+      "privileged": false
+    },
+    "type": "DOCKER",
+    "volumes": []
+  },
+  "cpus": 0.1,
+  "disk": 0,
+  "env": {},
+  "healthChecks": [],
+  "instances": 1,
+  "maxLaunchDelaySeconds": 3600,
+  "mem": 64,
+  "upgradeStrategy": {
+    "maximumOverCapacity": 1,
+    "minimumHealthCapacity": 1
+  }
+}

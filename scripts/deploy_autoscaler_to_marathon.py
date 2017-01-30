@@ -27,9 +27,9 @@ def parse_cli_args():
     p.add_argument("--marathon-uri", dest="marathon_uri", type=str,
                    required=True, help="The Marathon Endpoint")
     p.add_argument("--marathon-user", dest="marathon_user", type=str,
-                   required=True, help="Username for Marathon access")
+                   required=False, help="Username for Marathon access")
     p.add_argument("--marathon-pass", dest="marathon_pass", type=str,
-                   required=True, help="Password for Marathon access")
+                   required=False, help="Password for Marathon access")
     p.add_argument("--interval", dest="sleep_interval", type=str,
                    required=True, help="The time duration in seconds between polling events")
     p.add_argument("--mesos-uri", dest="mesos_uri", type=str,

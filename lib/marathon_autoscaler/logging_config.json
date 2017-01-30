@@ -28,18 +28,18 @@
             "propagate": 1
         },
         "scaler": {
-            "level": "INFO",
+            "level": "DEBUG",
             "handlers": ["console"],
             "propagate": 0
         },
         "rules_manager": {
-            "level": "INFO",
+            "level": "DEBUG",
             "handlers": ["console"],
             "propagate": 0
         }
     },
     "root": {
-        "level": "INFO",
+        "level": "DEBUG",
         "handlers": ["console"]
     }
 }

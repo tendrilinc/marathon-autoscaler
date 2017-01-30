@@ -1,8 +1,8 @@
 minimesos {
     clusterName = "for_mas_cluster"
     loggingLevel = "INFO"
-    mapAgentSandboxVolume = false
-    mapPortsToHost = false
+    mapAgentSandboxVolume = true
+    mapPortsToHost = true
     mesosVersion = "1.0.0"
     timeout = 60
 
@@ -31,22 +31,17 @@ minimesos {
 
             ports {
                 role = "*"
-                value = "[31000-32000]"
+                value = "[4000-32000]"
             }
         }
     }
 
-    consul {
-        imageName = "containersol/consul-server"
-        imageTag = "0.6-1"
-    }
-
     marathon {
         imageName = "mesosphere/marathon"
-        imageTag = "v0.15.3"
+        imageTag = "v1.3.6"
 
         app {
-            marathonJson = "https://raw.githubusercontent.com/ContainerSolutions/minimesos/e2a43362f4581122762c80d8780d09b567783f1a/apps/weave-scope.json"
+            marathonJson = "tests/minimesos/registry.json"
         }
     }
 
@@ -56,11 +51,6 @@ minimesos {
         imageName = "containersol/mesos-master"
         imageTag = "1.0.0-0.1.0"
         loggingLevel = "# INHERIT FROM CLUSTER"
-    }
-
-    registrator {
-        imageName = "gliderlabs/registrator"
-        imageTag = "v6"
     }
 
     zookeeper {
