@@ -1,0 +1,100 @@
+{
+  "recommendationsList": [
+    {
+      "test-service": {
+        "vote": 1,
+        "checksum": "2000-01-01T00:00:01.000Z",
+        "timestamp": "current_date",
+        "rule": {
+          "ruleInfo": {
+            "rulePart": "1",
+            "ruleName": "fastcpuscaleup"
+          },
+          "ruleValue": {
+            "scale_factor": "3",
+            "weight": 1.0,
+            "threshold": {
+              "val": "10",
+              "op": ">"
+            },
+            "metric": "cpu",
+            "tolerance": "PT10S",
+            "backoff": "PT30S"
+          }
+        }
+      }
+    },
+    {
+      "test-service": {
+        "vote": 1,
+        "checksum": "2000-01-01T00:00:01.000Z",
+        "timestamp": "current_date",
+        "rule": {
+          "ruleInfo": {
+            "rulePart": "1",
+            "ruleName": "fastcpuscaleup"
+          },
+          "ruleValue": {
+            "scale_factor": "3",
+            "weight": 1.0,
+            "threshold": {
+              "val": "10",
+              "op": ">"
+            },
+            "metric": "cpu",
+            "tolerance": "PT10S",
+            "backoff": "PT30S"
+          }
+        }
+      }
+    },
+    {
+      "test-service": {
+        "vote": 1,
+        "checksum": "2000-01-01T00:00:01.000Z",
+        "timestamp": "current_date",
+        "rule": {
+          "ruleInfo": {
+            "rulePart": "1",
+            "ruleName": "fastcpuscaleup"
+          },
+          "ruleValue": {
+            "scale_factor": "3",
+            "weight": 1.0,
+            "threshold": {
+              "val": "10",
+              "op": ">"
+            },
+            "metric": "cpu",
+            "tolerance": "PT10S",
+            "backoff": "PT30S"
+          }
+        }
+      }
+    },
+    {
+      "test-service": {
+        "vote": 1,
+        "checksum": "2000-01-01T00:00:01.000Z",
+        "timestamp": "current_date",
+        "rule": {
+          "ruleInfo": {
+            "rulePart": "1",
+            "ruleName": "fastcpuscaleup"
+          },
+          "ruleValue": {
+            "scale_factor": "3",
+            "weight": 1.0,
+            "threshold": {
+              "val": "10",
+              "op": ">"
+            },
+            "metric": "cpu",
+            "tolerance": "PT10S",
+            "backoff": "PT30S"
+          }
+        }
+      }
+    }
+  ]
+}
