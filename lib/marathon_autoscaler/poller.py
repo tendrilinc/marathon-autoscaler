@@ -144,7 +144,7 @@ class Poller:
 
             metric_sums["executor_metrics"] = metrics
             metric_sums["application_definition"] = next((appdef for appdef in marathon_apps
-                                                          if app.replace("_", "/") in appdef.get("id")), {})
+                                                          if app.replace("_", "/") == appdef.get("id")), {})
             app_metric_summation[app] = metric_sums
 
         return app_metric_summation

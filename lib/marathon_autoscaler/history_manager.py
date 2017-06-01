@@ -95,7 +95,7 @@ class HistoryManager(object):
         self.logger.info(msg.format(**locals()))
 
         dmsg = "{app_name}: {past_events}"
-        self.logger.debug(msg.format(**locals()))
+        self.logger.debug(dmsg.format(**locals()))
 
         return result
 
@@ -129,7 +129,7 @@ class HistoryManager(object):
         msg = "{app_name}: tolerance reached: {result} / {go_back_this_far:%H:%M:%S.%f} - " \
               "{right_now:%H:%M:%S.%f}"
         self.logger.info(msg.format(**locals()))
-        dmsg = "{app_name}: vote_list: {vote_list}"
+        dmsg = "{app_name}: vote_list: {vote_list}; tolerance: {tolerance}; right_now: {right_now}; time_difference: {time_difference}; go_back_this_far: {go_back_this_far};"
         self.logger.debug(dmsg.format(**locals()))
         return result
 
@@ -153,7 +153,7 @@ class HistoryManager(object):
         msg = "{app_name}: within backoff window: {result} / {go_back_this_far:%H:%M:%S.%f} - " \
               "{right_now:%H:%M:%S.%f}"
         self.logger.info(msg.format(**locals()))
-        dmsg = "{app_name}: {scale_events}"
+        dmsg = "{app_name}: scale events: {scale_events}"
         self.logger.debug(dmsg.format(**locals()))
         return result
 

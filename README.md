@@ -119,7 +119,7 @@ Explanation: The above rule is called "fastscaleup" which states: if cpu is grea
 ...
 "labels": {
 	"mas_rule_fastscaleup_1": "cpu | >90 | PT2M | 3 | PT1M30S",
-	"mas_rule_fastscaleup_2": "memory | >85 | PT2M | 3 | PT1M30S"
+	"mas_rule_fastscaleup_2": "mem | >85 | PT2M | 3 | PT1M30S"
 },
 ...
 ```
@@ -130,9 +130,9 @@ To complete the example above, so it contains scale down rules, here is example 
 ...
 "labels": {
 	"mas_rule_fastscaleup_1": "cpu | >90 | PT2M | 3 | PT1M30S",
-	"mas_rule_fastscaleup_2": "memory | >85 | PT2M | 3 | PT1M30S",
+	"mas_rule_fastscaleup_2": "mem | >85 | PT2M | 3 | PT1M30S",
 	"mas_rule_slowscaledown_1": "cpu | <=90 | PT1M | 1 | PT30S",
-	"mas_rule_slowscaledown_2": "memory | <=85 | PT1M | 1 | PT30S"
+	"mas_rule_slowscaledown_2": "mem | <=85 | PT1M | 1 | PT30S"
 },
 ...
 ```
