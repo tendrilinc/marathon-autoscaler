@@ -1,0 +1,53 @@
+{
+  "id": "marathon-autoscaler",
+  "container": {
+    "docker": {
+      "image": "{{ '127.0.0.1' if TRAVIS else '192.168.99.100' }}:5000/marathon-autoscaler:localbuild",
+      "network": "BRIDGE",
+      "parameters": [],
+      "privileged": false
+    },
+    "type": "DOCKER",
+    "volumes": [
+      {
+        "containerPath": "/var/run/docker.sock",
+        "hostPath": "/run/docker.sock",
+        "mode": "RW"
+      }
+    ]
+  },
+  "cpus": 0.2,
+  "disk": 0,
+  "env": {
+    "INTERVAL": "5",
+    "MESOS_URI": "{{ MINIMESOS_MASTER }}",
+    "MARATHON_URI": "{{ MINIMESOS_MARATHON }}"
+  },
+  "healthChecks": [
+    {
+      "protocol": "COMMAND",
+      "command": {
+        "value": "/usr/bin/supervisorctl status marathon_autoscaler"
+      },
+      "gracePeriodSeconds": 30,
+      "intervalSeconds": 60,
+      "timeoutSeconds": 20,
+      "maxConsecutiveFailures": 3
+    }
+  ],
+  "instances": 1,
+  "maxLaunchDelaySeconds": 3600,
+  "mem": 64,
+  "upgradeStrategy": {
+    "maximumOverCapacity": 1,
+    "minimumHealthCapacity": 1
+  },
+  "fetch": [
+    {
+      "uri": "https://gist.githubusercontent.com/kernelpanek-tendril/161c41e972b37eb23dbea48f9cfe94e4/raw/835bfce527acdfa6bec14c87142e5c7a74823bdd/logging_config.json",
+      "executable": false,
+      "extract": false,
+      "cache": true
+    }
+  ]
+}

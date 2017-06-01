@@ -1,0 +1,60 @@
+minimesos {
+    clusterName = "for_mas_cluster"
+    loggingLevel = "INFO"
+    mapAgentSandboxVolume = true
+    mapPortsToHost = true
+    mesosVersion = "1.0.0"
+    timeout = 60
+
+    agent {
+        imageName = "containersol/mesos-agent"
+        imageTag = "1.0.0-0.1.0"
+        loggingLevel = "# INHERIT FROM CLUSTER"
+        portNumber = 5051
+
+        resources {
+
+            cpu {
+                role = "*"
+                value = 1
+            }
+
+            disk {
+                role = "*"
+                value = 200
+            }
+
+            mem {
+                role = "*"
+                value = 256
+            }
+
+            ports {
+                role = "*"
+                value = "[4000-32000]"
+            }
+        }
+    }
+
+    marathon {
+        imageName = "mesosphere/marathon"
+        imageTag = "v1.3.6"
+
+        app {
+            marathonJson = "tests/minimesos/registry.json"
+        }
+    }
+
+    master {
+        aclJson = null
+        authenticate = false
+        imageName = "containersol/mesos-master"
+        imageTag = "1.0.0-0.1.0"
+        loggingLevel = "# INHERIT FROM CLUSTER"
+    }
+
+    zookeeper {
+        imageName = "jplock/zookeeper"
+        imageTag = "3.4.6"
+    }
+}

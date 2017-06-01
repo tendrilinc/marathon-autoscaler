@@ -1,8 +1,37 @@
 language: python
+
+dist: trusty
+
 python:
   - "2.7"
   - "3.5"
-# command to install dependencies
-install: "pip install -r requirements.txt"
-# command to run tests
-script: py.test --cov=lib/marathon_autoscaler/
+
+services:
+  - docker
+
+env:
+  global:
+    - PATH=$PATH:$HOME/.minimesos/bin
+
+install:
+  - curl -sSL https://minimesos.org/install | sh
+  - pip install -r requirements.txt
+  - pip install jinja2
+  - minimesos up
+  - eval $(minimesos info | tail -n +3)
+  - export DOCKER_REGISTRY=127.0.0.1:5000
+  - docker build -t marathon-autoscaler:localbuild .
+  - docker build -t stress-tester-app:localbuild tests/stress_tester_app
+  - docker tag marathon-autoscaler:localbuild ${DOCKER_REGISTRY}/marathon-autoscaler:localbuild
+  - docker tag stress-tester-app:localbuild ${DOCKER_REGISTRY}/stress-tester-app:localbuild
+  - docker push ${DOCKER_REGISTRY}/marathon-autoscaler:localbuild
+  - docker push ${DOCKER_REGISTRY}/stress-tester-app:localbuild
+  - python scripts/render_template.py tests/minimesos/marathon-autoscaler-app-def.json -o autoscaler-app.json
+  - minimesos install --marathonFile autoscaler-app.json
+
+script:
+  - py.test --cov=lib/marathon_autoscaler/
+  - curl $MINIMESOS_MARATHON/v2/apps
+
+after_script:
+  - minimesos destroy

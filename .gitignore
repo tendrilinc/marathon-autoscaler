@@ -59,3 +59,9 @@ target/
 
 #Ipython Notebook
 .ipynb_checkpoints
+
+# Intellij-type files
+**/.idea
+
+# Minimesos working directory
+.minimesos
