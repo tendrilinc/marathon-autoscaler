@@ -19,9 +19,18 @@ install:
 
 script:
   - py.test --cov=lib/marathon_autoscaler/
-  - docker build -t marathon-autoscaler:localbuild .
   - minimesos up
   - eval $(minimesos info | tail -n +3)
+  - eval $(python scripts/discover_registry.py)
+  - docker build -t marathon-autoscaler:localbuild .
+  - docker build -t stress-tester-app:localbuild tests/stress_tester_app
+  - docker tag marathon-autoscaler:localbuild $DOCKER_REGISTRY/marathon-autoscaler:localbuild
+  - docker tag stress-tester-app:localbuild ${DOCKER_REGISTRY}/stress-tester-app:localbuild
+  - docker push ${DOCKER_REGISTRY}/marathon-autoscaler:localbuild
+  - docker push ${DOCKER_REGISTRY}/stress-tester-app:localbuild
+  - python scripts/render_template.py tests/minimesos/marathon-autoscaler-app-def.json -o autoscaler-app.json
+  - minimesos install --marathonFile autoscaler-app.json
+  - sleep 10
   - curl $MINIMESOS_MARATHON/v2/apps
 
 after_script:
