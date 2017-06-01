@@ -21,7 +21,7 @@ script:
   - py.test --cov=lib/marathon_autoscaler/
   - minimesos up
   - eval $(minimesos info | tail -n +3)
-  - eval $(python scripts/discover_registry.py)
+  - export DOCKER_REGISTRY=127.0.0.1:5000
   - docker build -t marathon-autoscaler:localbuild .
   - docker build -t stress-tester-app:localbuild tests/stress_tester_app
   - docker tag marathon-autoscaler:localbuild $DOCKER_REGISTRY/marathon-autoscaler:localbuild
