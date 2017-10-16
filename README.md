@@ -23,13 +23,13 @@ The aim of this project is to allow Marathon applications to scale to meet load 
 
 ## Build and deploy the Autoscaler
 
-The Makefile requires REGISTRY environment variable to be set to your Docker registry. 
+The Makefile requires REGISTRY environment variable to be set to your Docker registry.
 
 ```bash
 REGISTRY=fooreg.mydockerregistry.com make
 ```
 
-To manually build the app, the following commands build and deploy the Autoscaler Docker container: 
+To manually build the app, the following commands build and deploy the Autoscaler Docker container:
 
 Build the python zipapp:
 
@@ -52,7 +52,7 @@ docker push {{registry_url}}/marathon_autoscaler:latest
 
 ### Deploying the Autoscaler to Marathon
 
-In the `scripts` directory, deploy_autoscaler_to_marathon.py can be executed to deploy an 
+In the `scripts` directory, deploy_autoscaler_to_marathon.py can be executed to deploy an
 instance of the Autoscaler to your Marathon system. The parameters needed are explained below:
 
 
@@ -62,7 +62,7 @@ instance of the Autoscaler to your Marathon system. The parameters needed are ex
 | --mesos-uri | MESOS_URI | The Mesos HTTP endpoint |
 | --mesos-agent-port | AGENT_PORT | The port your Mesos Agent is listening on (defaults to 5051) |
 | --marathon-uri | MARATHON_URI | The Marathon HTTP endpoint |
-| --marathon-user | MARATHON_USER | The Marathon username for authentication on the `marathon-uri` | 
+| --marathon-user | MARATHON_USER | The Marathon username for authentication on the `marathon-uri` |
 | --marathon-pass | MARATHON_PASS | The Marathon password for authentication on the `marathon-uri` |
 | --cpu-fan-out | CPU_FAN_OUT | Number of subprocesses to use for gathering and sending stats to Datadog |
 | --dd-api-key | DATADOG_API_KEY | Datadog API key |
@@ -78,7 +78,7 @@ cd scripts && python deploy_autoscaler_to_marathon.py {PARAMETERS}
 ```
 
 
-### Deploying a Marathon application to use the Autoscaler 
+### Deploying a Marathon application to use the Autoscaler
 
 #### Participation
 
@@ -103,7 +103,7 @@ Number of minimum and maximum number of application instances.
 ...
 ```
 
-#### Scaling Rules 
+#### Scaling Rules
 
 Scaling rules are set in a Marathon application's labels in its application definition. To get you introduced to scaling rules, let's jump right into an example:
 ```json
@@ -162,10 +162,10 @@ Perhaps you want your application to scale up and down differently for different
 ...
 ```
 When multiple rules focus on the same metric, the autoscaler should take the action of the rule that matches closest to the given tolerance and threshold. It is possible that your application may never trigger some rules depending on the application's behavior.
- 
+
 
 \* Comparisons can use >, <, <=, >=, = or ==
- 
+
 \*\* [A Wikipedia Reference on ISO8601 time duration](https://en.wikipedia.org/wiki/ISO_8601#Durations)
 
 
