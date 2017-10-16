@@ -131,8 +131,8 @@ To complete the example above, so it contains scale down rules, here is example 
 "labels": {
 	"mas_rule_fastscaleup_1": "cpu | >90 | PT2M | 3 | PT1M30S",
 	"mas_rule_fastscaleup_2": "mem | >85 | PT2M | 3 | PT1M30S",
-	"mas_rule_slowscaledown_1": "cpu | <=90 | PT1M | 1 | PT30S",
-	"mas_rule_slowscaledown_2": "mem | <=85 | PT1M | 1 | PT30S"
+	"mas_rule_slowscaledown_1": "cpu | <=90 | PT1M | -1 | PT30S",
+	"mas_rule_slowscaledown_2": "mem | <=85 | PT1M | -1 | PT30S"
 },
 ...
 ```
@@ -144,7 +144,7 @@ Maybe your application is only interested in scaling based on CPU:
 ...
 "labels": {
 	"mas_rule_fastscaleup": "cpu | >90 | PT2M | 3 | PT1M30S",
-	"mas_rule_slowscaledown": "cpu | <=90 | PT1M | 1 | PT30S",
+	"mas_rule_slowscaledown": "cpu | <=90 | PT1M | -1 | PT30S",
 },
 ...
 ```
@@ -156,8 +156,8 @@ Perhaps you want your application to scale up and down differently for different
 	"mas_rule_slowscaleup": "cpu | >40 | PT2M | 1 | PT1M30S",
 	"mas_rule_fastscaleup": "cpu | >60 | PT1M | 3 | PT30S",
 	"mas_rule_hyperscaleup": "cpu | >90 | PT1M | 5 | PT15S",
-	"mas_rule_slowscaledown": "cpu | <90 | PT1M30S | 1 | PT30S",
-	"mas_rule_fastscaledown": "cpu | <10 | PT3M | 5 | PT30S",
+	"mas_rule_slowscaledown": "cpu | <90 | PT1M30S | -1 | PT30S",
+	"mas_rule_fastscaledown": "cpu | <10 | PT3M | -5 | PT30S",
 },
 ...
 ```
