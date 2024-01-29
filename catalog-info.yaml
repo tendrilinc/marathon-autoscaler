@@ -1,0 +1,12 @@
+# See https://backstage.io/docs/features/software-catalog/descriptor-format/
+
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: marathon-autoscaler
+  annotations:
+    github.com/project-slug: tendrilinc/marathon-autoscaler
+spec:
+  owner: group:tendrilinc/SRE
+  type: infrastructure
+  lifecycle: production
