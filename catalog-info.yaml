@@ -7,6 +7,6 @@ metadata:
   annotations:
     github.com/project-slug: tendrilinc/marathon-autoscaler
 spec:
-  owner: group:tendrilinc/SAG
-  type: unspecified
-  lifecycle: unspecified
+  owner: group:tendrilinc/SRE
+  type: infrastructure
+  lifecycle: production
